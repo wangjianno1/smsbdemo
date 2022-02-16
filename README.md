@@ -1,5 +1,5 @@
 # smsbdemo
-SpringBoot2.0 demo学习
+SpringBoot2.0 demo学习，且是maven单模块项目。
 single module SpringBoot2 demo.
 
 ENV:
