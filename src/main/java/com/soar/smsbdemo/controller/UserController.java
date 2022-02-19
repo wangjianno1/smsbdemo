@@ -15,7 +15,7 @@ public class UserController {
 
     @GetMapping("/user")
     public List<User> getAllUser() {
-        List<User> stus = helloService.getAllStudent();
+        List<User> stus = helloService.getAllUser();
         return stus;
     }
 }
