@@ -1,6 +1,7 @@
 package com.soar.smsbdemo.service.impl;
 
 import com.soar.smsbdemo.entity.User;
+import com.soar.smsbdemo.mapper.UserMapper;
 import com.soar.smsbdemo.repository.UserRepository;
 import com.soar.smsbdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,17 @@ public class UserServiceServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public List<User> getAllUser() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<User> getAllUser2() {
+        return userMapper.getAllUsers();
     }
 
     @Override

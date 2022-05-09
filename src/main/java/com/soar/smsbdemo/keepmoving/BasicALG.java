@@ -1,5 +1,6 @@
 package com.soar.smsbdemo.keepmoving;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,10 +25,19 @@ public class BasicALG {
 //        for(char c : kas) {
 //            System.out.println(c);
 //        }
-
-
-        leetcode_5("");
         int[] arrs = new int[] {23, 43, 45, 4, 67, 89, 23, 6, 99};
+
+
+        //bubbleSort2(arrs);
+        //insertSort3(arrs);
+        List<Integer> result = new ArrayList<>();
+        System.out.println(result.get(3));
+
+        int[] nums1 = new int[] {23, 32, 54, 57};
+        int[] nums2 = new int[] {1, 34, 35, 89};
+        int[] merged = new int[nums1.length+nums2.length];
+        mergeArray(nums1, nums2, merged);
+        System.out.println(Arrays.toString(merged));
 
         //System.out.println("+++++++++排序前++++++++++");
         //printArray(arrs);
@@ -36,6 +46,82 @@ public class BasicALG {
         //insertSort2(arrs);
         //BubbleSort(arrs);
         //printArray(arrs);
+    }
+
+    public void traverseBiTree(TreeNode node, int n, int[] result) {
+        if (node == null) {
+            return;
+        }
+        if (result[n] == 0) {
+            result[n] = node.value;
+        } else if (result[n] < node.value) {
+            result[n] = node.value;
+        }
+        System.out.println(node.value);
+        traverseBiTree(node.left, n-1, result);
+        traverseBiTree(node.right, n-1, result);
+    }
+
+    public static void mergeArray(int[] nums1, int[] nums2, int[] merged) {
+        if (nums1 == null || nums2 == null) {
+            return;
+        }
+
+        int i =0;
+        int index1=0, index2=0;
+        while(index1<nums1.length || index2<nums2.length) {
+            if(index1==nums1.length) {
+                merged[i] = nums2[index2];
+                i++;
+                index2++;
+            } else if(index2==nums2.length) {
+                merged[i] = nums1[index1];
+                i++;
+                index1++;
+            } else if(nums1[index1] <= nums2[index2]) {
+                merged[i] = nums1[index1];
+                i++;
+                index1++;
+            } else {
+                merged[i] = nums2[index2];
+                i++;
+                index2++;
+            }
+        }
+
+    }
+
+    public static void insertSort3(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+        for (int i = 1; i < nums.length; i++) {
+           for (int j = i; j>0; j--) {
+               if(nums[j] < nums[j-1]) {
+                   int temp = nums[j];
+                   nums[j] = nums[j-1];
+                   nums[j-1] = nums[j];
+               } else if (nums[j] >= nums[j-1]) {
+                   break;
+               }
+           }
+        }
+    }
+
+    public static void bubbleSort2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+
+        for(int i=0; i < nums.length-1; i++) {
+            for(int j=0; j < nums.length-i-2; j++) {
+                if(nums[j] > nums[j+1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
 
     }
 

@@ -18,4 +18,10 @@ public class UserController {
         List<User> stus = helloService.getAllUser();
         return stus;
     }
+
+    @GetMapping("/user2")
+    public List<User> getAllUser2() {
+        List<User> users = helloService.getAllUser2();
+        return users;
+    }
 }
