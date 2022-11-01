@@ -2,12 +2,14 @@ package com.soar.smsbdemo.keepmoving;
 
 import com.soar.smsbdemo.entity.User;
 
+import java.util.*;
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -16,12 +18,13 @@ import java.util.stream.Stream;
 public class Test {
     public static void main(String[] args) {
 
-        List<Integer> l = new ArrayList<>();
-        l.add(1);
-        l.add(4);
-        l.add(2);
-        l.sort(Comparator.naturalOrder());
-        l.forEach(item -> System.out.println(item));
+        List<String> list = new ArrayList<>();
+        list.add("sdsdf");
+        System.out.println(list);
+
+        List<String> ls = Collections.singletonList("sdfsfd");
+        ls.add("sfsfd");
+
 
 //        Instant now = Instant.now();
 //        System.out.println(now);
